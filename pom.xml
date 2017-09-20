@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <name>auth-service</name>
-    <groupId>com.oncteam.sg-store</groupId>
+    <groupId>com.smart-gid-store</groupId>
     <artifactId>auth-service</artifactId>
     <version>0.1</version>
 

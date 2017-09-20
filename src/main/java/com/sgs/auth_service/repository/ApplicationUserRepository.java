@@ -1,6 +1,6 @@
-package com.oncteam.sg_store.auth_service.repository;
+package com.sgs.auth_service.repository;
 
-import com.oncteam.sg_store.auth_service.domain.entity.ApplicationUser;
+import com.sgs.auth_service.domain.entity.ApplicationUser;
 import org.springframework.data.repository.Repository;
 
 import java.util.Optional;

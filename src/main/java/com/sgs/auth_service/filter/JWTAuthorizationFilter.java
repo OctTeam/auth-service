@@ -1,4 +1,4 @@
-package com.oncteam.sg_store.auth_service.filter;
+package com.sgs.auth_service.filter;
 
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.oncteam.sg_store.auth_service.domain.utils.SecurityConstants.HEADER_STRING;
-import static com.oncteam.sg_store.auth_service.domain.utils.SecurityConstants.SECRET;
-import static com.oncteam.sg_store.auth_service.domain.utils.SecurityConstants.TOKEN_PREFIX;
+import static com.sgs.auth_service.domain.utils.SecurityConstants.HEADER_STRING;
+import static com.sgs.auth_service.domain.utils.SecurityConstants.SECRET;
+import static com.sgs.auth_service.domain.utils.SecurityConstants.TOKEN_PREFIX;
 import static org.springframework.boot.web.filter.ApplicationContextHeaderFilter.HEADER_NAME;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {

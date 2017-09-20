@@ -1,4 +1,4 @@
-package com.oncteam.sg_store.auth_service.domain.entity;
+package com.sgs.auth_service.domain.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

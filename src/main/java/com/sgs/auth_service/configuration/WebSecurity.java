@@ -1,7 +1,7 @@
-package com.oncteam.sg_store.auth_service.configuration;
+package com.sgs.auth_service.configuration;
 
-import com.oncteam.sg_store.auth_service.filter.JWTAuthenticationFilter;
-import com.oncteam.sg_store.auth_service.filter.JWTAuthorizationFilter;
+import com.sgs.auth_service.filter.JWTAuthenticationFilter;
+import com.sgs.auth_service.filter.JWTAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,10 +14,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import static com.oncteam.sg_store.auth_service.domain.utils.SecurityConstants.SIGN_UP_URL;
+import static com.sgs.auth_service.domain.utils.SecurityConstants.SIGN_UP_URL;
 
 @Configuration
 @EnableWebSecurity

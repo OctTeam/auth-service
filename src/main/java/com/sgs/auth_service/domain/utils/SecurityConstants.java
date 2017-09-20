@@ -1,4 +1,4 @@
-package com.oncteam.sg_store.auth_service.domain.utils;
+package com.sgs.auth_service.domain.utils;
 
 public class SecurityConstants {
     public static final String SECRET = "SecretKeyToGenJWTs";

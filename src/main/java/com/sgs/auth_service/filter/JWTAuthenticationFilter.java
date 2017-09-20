@@ -1,7 +1,7 @@
-package com.oncteam.sg_store.auth_service.filter;
+package com.sgs.auth_service.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.oncteam.sg_store.auth_service.domain.entity.ApplicationUser;
+import com.sgs.auth_service.domain.entity.ApplicationUser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static com.oncteam.sg_store.auth_service.domain.utils.SecurityConstants.*;
+import static com.sgs.auth_service.domain.utils.SecurityConstants.*;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
     private AuthenticationManager authenticationManager;

@@ -1,4 +1,4 @@
-package com.oncteam.sg_store.auth_service;
+package com.sgs.auth_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,7 @@
-package com.oncteam.sg_store.auth_service.service.impl;
+package com.sgs.auth_service.impl;
 
-import com.oncteam.sg_store.auth_service.domain.entity.ApplicationUser;
-import com.oncteam.sg_store.auth_service.repository.ApplicationUserRepository;
+import com.sgs.auth_service.domain.entity.ApplicationUser;
+import com.sgs.auth_service.repository.ApplicationUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
