@@ -69,7 +69,7 @@
         <dependency>
             <groupId>com.github.smartgidstore</groupId>
             <artifactId>sgs-common</artifactId>
-            <version>f4770af</version>
+            <version>22f6302</version>
         </dependency>
     </dependencies>
 
