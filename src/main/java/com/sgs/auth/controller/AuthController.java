@@ -5,9 +5,6 @@ import com.sgs.auth.domain.response.TokenValidResponse;
 import com.sgs.auth.service.AuthService;
 import com.sgs.common.exceptions.*;
 import com.sgs.common.model.base.model.BaseResponse;
-import com.sgs.common.model.user.dto.UserSignInDto;
-import com.sgs.common.model.user.dto.UserSignUpDto;
-import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -17,10 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 
 import static com.sgs.auth.domain.utils.SecurityConstants.HEADER_TOKEN;
-import static com.sgs.auth.domain.utils.SecurityConstants.TOKEN_PREFIX;
-import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
-import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 
 @RestController
 public class AuthController {

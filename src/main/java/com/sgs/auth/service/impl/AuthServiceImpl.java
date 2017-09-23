@@ -2,17 +2,10 @@ package com.sgs.auth.service.impl;
 
 import com.sgs.auth.domain.handler.TokenHandler;
 import com.sgs.auth.service.AuthService;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Optional;
-
-import static com.sgs.auth.domain.utils.SecurityConstants.EXPIRATION_TIME;
-import static com.sgs.auth.domain.utils.SecurityConstants.SECRET;
 
 @Service
 public class AuthServiceImpl implements AuthService {

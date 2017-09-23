@@ -1,17 +1,12 @@
 package com.sgs.auth.domain.handler;
 
-import com.google.common.io.BaseEncoding;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.impl.TextCodec;
 import org.springframework.stereotype.Component;
 
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Date;
 import java.util.Optional;
 
@@ -21,40 +16,47 @@ import static com.sgs.auth.domain.utils.SecurityConstants.SECRET;
 @Component
 public class TokenHandler {
 
-    private final SecretKey secretKey;
+    private byte[] secretKey;
 
     public TokenHandler() {
-        byte[] decodeKey = BaseEncoding.base64().decode(SECRET);
-        secretKey = new SecretKeySpec(decodeKey, 0, decodeKey.length, "AES");
+        secretKey = TextCodec.BASE64.decode(SECRET);
     }
 
-    public Optional<Integer> extractUserId(String token) {
+    private Optional<Jws<Claims>> parseJwsClaims(String token) {
         try {
-            Jws<Claims> claimsJws = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
-            Claims body = claimsJws.getBody();
-            return Optional
-                    .ofNullable(body.getId())
-                    .map(Integer::new);
-        } catch (RuntimeException e){
+            return Optional.ofNullable(Jwts.parser()
+                                        .requireSubject("session-token")
+                                        .setSigningKey(secretKey)
+                                        .parseClaimsJws(token));
+        } catch (RuntimeException e) {
+            e.printStackTrace();
             return Optional.empty();
         }
     }
 
+    public Optional<Integer> extractUserId(String token) {
+        Optional<Jws<Claims>> jws = parseJwsClaims(token);
+        if (!jws.isPresent()) return Optional.empty();
+        return Optional
+                .ofNullable(jws.get().getBody().getId())
+                .map(Integer::new);
+    }
+
     public String generateAccessToken(Integer id){
         return Jwts.builder()
-                .setId(id.toString())
-                .setExpiration(new Date(System.currentTimeMillis()))
+                .setSubject("session-token")
+                .claim("user_id", id.toString())
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
     }
 
     public Boolean isActiveToken(String token) {
-        Claims claims = Jwts.parser()
-                .setSigningKey(secretKey)
-                .parseClaimsJws(token)
-                .getBody();
-        long tokenExprisionTime = claims.getExpiration().getTime() + EXPIRATION_TIME;
-        return tokenExprisionTime >= new Date(System.currentTimeMillis()).getTime();
+        Optional<Jws<Claims>> jws = parseJwsClaims(token);
+        if (!jws.isPresent()) return false;
+
+        long tokenExpiration = jws.get().getBody().getExpiration().getTime();
+        return tokenExpiration >= new Date(System.currentTimeMillis()).getTime();
     }
 
 
