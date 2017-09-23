@@ -21,12 +21,12 @@ import static com.sgs.auth_service.domain.utils.SecurityConstants.SIGN_URLS;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurity extends WebSecurityConfigurerAdapter{
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     private UserDetailsService userDetailsService;
 
     @Autowired
-    public WebSecurity(UserDetailsService userDetailsService) {
+    public WebSecurityConfiguration(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
