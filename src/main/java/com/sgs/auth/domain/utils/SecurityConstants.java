@@ -1,4 +1,4 @@
-package com.sgs.auth_service.domain.utils;
+package com.sgs.auth.domain.utils;
 
 public class SecurityConstants {
 
@@ -7,8 +7,4 @@ public class SecurityConstants {
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String HEADER_TOKEN = "Authorization";
 
-
-    public static final String SIGN_UP_URL = "/auth/register";
-    public static final String SIGN_IN_URL = "/auth/login";
-    public static final String[] SIGN_URLS = {SIGN_IN_URL, SIGN_UP_URL};
 }

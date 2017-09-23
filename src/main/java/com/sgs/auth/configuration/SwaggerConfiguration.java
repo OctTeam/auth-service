@@ -1,4 +1,4 @@
-package com.sgs.auth_service.configuration;
+package com.sgs.auth.configuration;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +11,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-@ComponentScan({"com.sgs"})
+@ComponentScan({"com.sgs.auth"})
 @EnableSwagger2
 @EnableAutoConfiguration
 public class SwaggerConfiguration {
