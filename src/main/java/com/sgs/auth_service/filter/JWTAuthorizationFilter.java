@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.sgs.auth_service.domain.utils.SecurityConstants.HEADER_STRING;
+import static com.sgs.auth_service.domain.utils.SecurityConstants.HEADER_TOKEN;
 import static com.sgs.auth_service.domain.utils.SecurityConstants.SECRET;
 import static com.sgs.auth_service.domain.utils.SecurityConstants.TOKEN_PREFIX;
 import static org.springframework.boot.web.filter.ApplicationContextHeaderFilter.HEADER_NAME;
@@ -39,7 +39,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     }
 
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
-        String token = request.getHeader(HEADER_STRING);
+        String token = request.getHeader(HEADER_TOKEN);
         if (token == null) return null;
 
         String user = Jwts.parser()
